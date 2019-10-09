@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="../lib/vue.js"></script>
+<body>
+    <div id="app">
+        {{'Yongjar' | toUpperCase}}
+    </div>
+    
+</body>
+<script>
+    var myData = 3    ;
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            books:[
+                {name:'java编程'},
+                {name:'javscript编程'},
+                {name:'C#编程'}
+            ],
+            name:'',
+            a:myData
+        },
+        created() {
+            console.log("create start");
+           
+        },
+        mounted() {
+        },
+    });
+
+
+</script>
+</html>

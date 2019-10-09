@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        总价{{prices}}
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            package1:[
+                {
+                    name:'iPhone',
+                    price:7000,
+                    count:1
+                },
+                {
+                    name:'iPad',
+                    price:3000,
+                    count:1
+                },
+            ],
+            package2:[
+                {
+                    name:'onePlus 7',
+                    price:6000,
+                    count:1
+                },
+                {
+                    name:'onePlus 5',
+                    price:4001,
+                    count:2
+                },
+            ]
+        },
+        computed: {
+
+            prices:function(){
+                var prices= 0;
+                var p1 = this.package1;
+                var p2 = this.package2;
+                for (let index = 0; index < p1.length; index++) {
+                    prices += p1[index].price * p1[index].count;
+                }
+                for (let index = 0; index < p2.length; index++) {
+                    prices += p2[index].price * p2[index].count;
+                }
+                return prices;
+            }
+        },
+    });
+
+</script>
+</html>

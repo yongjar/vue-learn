@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <ul>
+            <template v-for="book in filterBooks">
+                <li>bookName：{{book.name}}</li>
+                <li>author：{{book.author}}</li>
+            </template>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            books:[
+                {
+                    name:'Vue实战',
+                    author:'张三'
+                },
+                {
+                    name:'java编程',
+                    author:'yongjar'
+                },
+                {
+                    name:'java编程思想',
+                    author:'Nichlas c'
+                }
+            ]
+        },
+        computed: {
+            filterBooks:function(){
+                return this.books.filter(function(book){
+                    return book.name.match(/java/);
+                });
+
+            }
+        },
+            
+    }); 
+  /*   vm.books = vm.books.filter(function(item){
+        return item.name.match(/java/);
+    }); */
+
+</script>
+</html>
